@@ -8,8 +8,16 @@ use Illuminate\Http\Request;
 use App\Http\Resources\EngWordsResource;
 use \DB;
 
+use App\Http\Service\MessageGenerator;
+
 class EngWordController extends Controller
 {
+    public function __construct(
+        public MessageGenerator $messageGenerator
+    )
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +36,9 @@ class EngWordController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
+        $word = EngWord::create($request->all());
+        return new EngWordsResource($word);
         //
     }
 
@@ -66,5 +77,12 @@ class EngWordController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function reandomText(): array
+    {
+        return [
+            'HappyMessage' => $this->messageGenerator->getHappyMessage()
+        ];
     }
 }

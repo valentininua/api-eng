@@ -11,13 +11,11 @@ class EngWordsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
-     *
-     * @param  Request  $request
-     * @return array|Arrayable|JsonSerializable
      */
     public function toArray($request): array|JsonSerializable|Arrayable
     {
         return [
+            'id' => $this->uuid,
             'uuid' => $this->uuid,
             'eng' => $this->eng,
             'rus' => $this->rus,

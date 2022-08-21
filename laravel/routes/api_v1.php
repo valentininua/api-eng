@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\Api\EngWordController;
+use App\Http\Controllers\Api\V1\EngWordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/data-2/', [EngWordController::class, 'index']);
 
 Route::apiResources([
-    'eng-word' => EngWordController::class
+    'eng-word' => EngWordController::class,
 ]);
+
+Route::get('reandom-text', [EngWordController::class, 'reandomText']);
