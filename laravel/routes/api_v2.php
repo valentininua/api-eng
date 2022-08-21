@@ -23,3 +23,4 @@ Route::get('/data-2/', [EngWordController::class, 'index']);
 Route::apiResources([
     'eng-word' => EngWordController::class
 ]);
+

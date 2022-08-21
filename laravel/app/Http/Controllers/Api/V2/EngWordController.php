@@ -14,7 +14,7 @@ class EngWordController extends Controller
      */
     public function index()
     {
-        return  'version api 2';//
+        return  ['version api 2'];//
     }
 
     /**
