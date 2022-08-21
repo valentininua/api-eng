@@ -18,10 +18,12 @@ class EngWords extends Seeder
      */
     public function run()
     {
-        \DB::table('eng_words')->insert([
-            'eng' => Str::random(40),
-            'rus' => Str::random(40).'@gmail.com',
-            'description' => Str::random(40),
-        ]);
+        for ($i=0; $i<=10;$i++) {
+            DB::table('eng_words')->insert([
+                'eng' => Str::random(40),
+                'rus' => Str::random(40).'@gmail.com',
+                'description' => Str::random(40),
+            ]);
+        }
     }
 }

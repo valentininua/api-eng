@@ -16,7 +16,8 @@ return new class extends Migration
     {
         Schema::create('eng_words', static function (Blueprint $table) {
 
-            $table->uuid('uuid')->default(DB::raw('gen_random_uuid()'))->primary('products_pkey');
+            $table->id();
+            $table->uuid('uuid')->default(DB::raw('gen_random_uuid()'));//->primary('products_pkey');
             $table->string('eng', 256);
             $table->string('rus', 256);
             $table->longText('description');

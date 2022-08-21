@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\EngWord;
 use Illuminate\Http\Request;
+use App\Http\Resources\EngWordsResource;
+use \DB;
 
 class EngWordController extends Controller
 {
@@ -14,7 +17,7 @@ class EngWordController extends Controller
      */
     public function index()
     {
-        return [];//
+        return EngWordsResource::collection(EngWord::all());
     }
 
     /**
@@ -36,7 +39,10 @@ class EngWordController extends Controller
      */
     public function show($id)
     {
-        //
+        return EngWord::findOrFail($id);
+
+        // dd(DB::table('eng_words')->where('uuid', '6b04696d-0a0b-4b98-8cc8-d730a6fb737c')->get());
+        // return EngWord::find($id);
     }
 
     /**
