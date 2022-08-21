@@ -9,5 +9,5 @@ class EngWord extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['eng','rus','description'];
+    protected $fillable = ['eng', 'rus', 'description'];
 }
