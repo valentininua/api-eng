@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EngWordRequest;
 use App\Http\Resources\EngWordsResource;
 use App\Http\Service\MessageGenerator;
-use App\Http\Requests\EngWordRequest;
 use App\Models\EngWord;
-use \DB;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -47,17 +47,14 @@ class EngWordController extends Controller
      */
     public function store(EngWordRequest $request)
     {
-        dd($request->validated());
-
-        $word = EngWord::create($request->validate());
-
+        $word = EngWord::create($request->validated());
         return new EngWordsResource($word);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function show($id)
@@ -72,7 +69,7 @@ class EngWordController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -83,11 +80,13 @@ class EngWordController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(EngWord $engWord)
     {
+        $engWord->delete();
+        return \response(null, Response::HTTP_NO_CONTENT);//Response::HTTP_ACCEPTED;
         //
     }
 

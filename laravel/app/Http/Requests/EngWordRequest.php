@@ -24,9 +24,9 @@ class EngWordRequest extends FormRequest
     public function rules()
     {
         return [
-           'eng' => 'required|max:250',
-           'rus' => 'required|max:250',
-           'description'  => 'required|max:250',
+            'eng' => 'required|max:250',
+            'rus' => 'required|max:250',
+            'description' => 'required|max:250',
         ];
     }
 }
