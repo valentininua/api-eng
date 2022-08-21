@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *
@@ -29,9 +31,23 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+
+            //------------------------  API V1 ------------------------
             Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+                ->prefix('api/v1')
+                ->middleware('api')
+                ->namespace('App\\Http\\Controllers\\Api\\V1')
+                ->group(base_path('routes/api_v1.php'));
+            //------------------------ /API V1 ------------------------
+
+            //------------------------  API V2 ------------------------
+            Route::middleware('api')
+                ->prefix('api/v2')
+                ->middleware('api')
+                ->namespace('App\\Http\\Controllers\\Api\\V2')
+                ->group(base_path('routes/api_v2.php'));
+            //------------------------ /API V2 ------------------------
+
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
