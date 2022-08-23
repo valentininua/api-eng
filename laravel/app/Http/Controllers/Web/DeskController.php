@@ -10,13 +10,12 @@ class DeskController extends Controller
 {
     public function __construct(
         public MessageGenerator $messageGenerator
-    )
-    {
+    ) {
     }
 
     public function index()
     {
         $data = $this->messageGenerator->getHappyMessage();
-        return view('web.desk.index' ,[ 'data' => $data ] );
+        return view('web.desk.index', [ 'data' => $data ]);
     }
 }

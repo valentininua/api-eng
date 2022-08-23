@@ -22,5 +22,4 @@ class EngWordsResource extends JsonResource
         ];
         //return parent::toArray($request);
     }
-
 }

@@ -15,8 +15,7 @@ class EngWordController extends Controller
 {
     public function __construct(
         public MessageGenerator $messageGenerator
-    )
-    {
+    ) {
     }
 
     /**

@@ -5,9 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\EngWord;
-use function PHPUnit\Framework\exactly;
-use \DB;
+use DB;
 use Illuminate\Support\Str;
+
+use function PHPUnit\Framework\exactly;
 
 class EngWords extends Seeder
 {
